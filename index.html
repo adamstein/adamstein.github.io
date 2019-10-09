@@ -15,7 +15,15 @@
 		  
 		  background-color: #20262e;
 		}
-
+		
+		#tinybuttons {
+			align: center;
+		  display: grid;
+		  grid-template-columns: repeat(12,1fr);
+		  grid-gap: 10px;
+		  padding-left:0px;
+		}
+		
 		ul {
 		align: center;
 		  display: grid;
@@ -271,9 +279,18 @@ input[type=text]:focus, textarea:focus {
 	tiny = {
 		"records":
 		[
-			{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://twitter.com/", "text":"<i class='fab fa-twitter  fa-1x'></i>"}
-			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://old.reddit.com/new", "text":"<i class='fab fa-reddit-alien  fa-1x'></i>"}
-			
+			{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://twitter.com/", "text":"<i class='fab fa-twitter  fa-2x'></i>", "title":"Twitter"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://old.reddit.com/new", "text":"<i class='fab fa-reddit-alien  fa-2x'></i>", "title":"Reddit"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://www.facebook.com", "text":"<i class='fab fa-facebook-f  fa-2x'></i>", "title":"FaceBook"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://www.dropbox.com", "text":"<i class='fab fa-dropbox  fa-2x'></i>", "title":"DropBox"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://ubuntu.com/", "text":"<i class='fab fa-ubuntu  fa-2x'></i>", "title":"Ubuntu"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://www.youtube.com", "text":"<i class='fab fa-youtube  fa-2x'></i>", "title":"YouTube"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://dpcqld.sharepoint.com", "text":"<i class='fas fa-compass  fa-2x'></i>", "title":"Compass AKA Intranet"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://www.yammer.com", "text":"<i class='fab fa-yammer  fa-2x'></i>", "title":"Yammer"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://dashboard.sine.co/#/", "text":"<i class='far fa-building  fa-2x'></i>", "title":"Building Invitiations"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://bookings.qgaaad.qld.gov.au/Master.aspx", "text":"<i class='fas fa-handshake  fa-2x'></i>", "title":"Book meeting rooms"}
+		
+		
 		]
 	};
 
@@ -292,7 +309,7 @@ input[type=text]:focus, textarea:focus {
   </script>
    <script id="tinybutton" type="text/template">
 	{{#records}}
-		<a href="{{link}}" target="_blank">
+		<a href="{{link}}" target="_blank"  title="{{title}}">
 			<li class="{{color}}">
 						{{{icon}}} {{{text}}}
 			</li>
