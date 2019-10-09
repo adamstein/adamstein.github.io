@@ -17,7 +17,7 @@
 		}
 
 		ul {
-			align: center;
+		align: center;
 		  display: grid;
 		  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 		  grid-gap: 10px;
@@ -217,9 +217,12 @@ input[type=text]:focus, textarea:focus {
 	<input type="text" class="form-control form form-input" name="q" value="" autocomplete="off" autofocus placeholder="Search google">
 	</form>
 
-<ul id="anchor">
 
-</ul>
+<ul id="tinybuttons"></ul>
+
+<ul id="bigbuttons"></ul>
+
+
 </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
@@ -238,29 +241,46 @@ input[type=text]:focus, textarea:focus {
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://admin.zscalertwo.net/#dashboard/1", "text":"<i class='fas fa-shield-alt fa-3x'></i><br/>zScaler"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://cloud.malwarebytes.com/auth/login", "text":"<i class='fas fa-shield-alt fa-3x'></i><br/>MalwareBytes"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://premiersqld.securityeducation.com/", "text":"<i class='fas fa-fish fa-3x'></i><br/>ProofPoint"}
-			
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://www.mailguard.com.au/blog", "text":"<i class='fas fa-newspaper fa-3x'></i><br/>MailGuard"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://threatpost.com/", "text":"<i class='fas fa-newspaper fa-3x'></i><br/>Threatpost"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://thehackernews.com/", "text":"<i class='fas fa-newspaper fa-3x'></i><br/>Hacker News"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://www.cyber.gov.au/", "text":"<i class='fas fa-user-secret fa-3x'></i><br/>ACSC"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://cyware.com/cyber-security-news-articles", "text":"<i class='fas fa-newspaper fa-3x'></i><br/>CYWARE"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://nakedsecurity.sophos.com/", "text":"<i class='fas fa-newspaper fa-3x'></i><br/>Naked Security"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://www.useapassphrase.com/", "text":"<i class='fas fa-key fa-3x'></i><br/>Use a passphrase"}
+			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://feedly.com/i/my", "text":"<i class='fas fa-rss fa-3x'></i><br/>Feedly"}
+		
+
 			,{"color":"bg-uif-wetasphalt fg-uif-white", "link":"https://ess.aurion.qgs.qld.gov.au/aurprd/actionitems", "text":"<i class='fas fa-user-clock fa-3x'></i><br/>Aurion"}
-			
-			
-			
 			
 			,{"color":"bg-uif-peterriver  fg-uif-white", "link":"https://mail.google.com/mail/u/0/", "text":"<i class='fab fa-google  fa-3x'></i></br>Mail"}
 			,{"color":"bg-uif-peterriver  fg-uif-white", "link":"https://calendar.google.com/calendar/r?pli=1", "text":"<i class='fab fa-google  fa-3x'></i></br>Calendar"}
 			,{"color":"bg-uif-peterriver  fg-uif-white", "link":"https://hangouts.google.com/", "text":"<i class='fab fa-google  fa-3x'></i></br>Hangouts"}
-			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://twitter.com/", "text":"<i class='fab fa-twitter  fa-3x'></i></br>Twitter"}
-			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://old.reddit.com/new", "text":"<i class='fab fa-reddit-alien  fa-3x'></i></br>Reddit"}
-			
+
 			,{"color":"bg-uif-nephritis  fg-uif-white", "link":"https://www.news.com.au", "text":"<i class='fas fa-newspaper  fa-3x'></i></br>news.com.au"}
+			,{"color":"bg-uif-nephritis  fg-uif-white", "link":"https://www.brisbanetimes.com.au/", "text":"<i class='fas fa-newspaper  fa-3x'></i></br>brisbanetimes.com.au"}
+			,{"color":"bg-uif-nephritis  fg-uif-white", "link":"https://www.itnews.com.au/", "text":"<i class='fas fa-newspaper  fa-3x'></i></br>itnews.com.au"}
+			
+			
 			
 			
 		]
 	};
 		
 
+	tiny = {
+		"records":
+		[
+			{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://twitter.com/", "text":"<i class='fab fa-twitter  fa-1x'></i>"}
+			,{"color":"bg-uif-wisteria  fg-uif-white", "link":"https://old.reddit.com/new", "text":"<i class='fab fa-reddit-alien  fa-1x'></i>"}
+			
+		]
+	};
+
 	</script>
 
  <!-- handlebars template -->
-  <script id="tpl" type="text/template">
+  <script id="bigbutton" type="text/template">
 	{{#records}}
 		<a href="{{link}}" target="_blank">
 			<li class="{{color}}">
@@ -269,9 +289,19 @@ input[type=text]:focus, textarea:focus {
 		</a>
  
 	{{/records}}  
-  
-    
   </script>
+   <script id="tinybutton" type="text/template">
+	{{#records}}
+		<a href="{{link}}" target="_blank">
+			<li class="{{color}}">
+						{{{icon}}} {{{text}}}
+			</li>
+		</a>
+ 
+	{{/records}}  
+  </script> 
+  
+  
   <script>
 
     var runHandlebars = function (data, tplId, anchor) {
@@ -279,7 +309,12 @@ input[type=text]:focus, textarea:focus {
       var stone = Handlebars.compile(template)(data);
       $(anchor).append(stone);
     };
-    runHandlebars(data, '#tpl', '#anchor'); 
+	
+	runHandlebars(tiny, '#tinybutton', '#tinybuttons'); 
+	
+	
+    runHandlebars(data, '#bigbutton', '#bigbuttons'); 
+	
   </script>
   <!-- Placed at the end of the document so the pages load faster -->
 
