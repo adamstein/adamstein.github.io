@@ -226,10 +226,11 @@ input[type=text]:focus, textarea:focus {
 
  <body>
 <div class="center">
+	<!--
 	<form class="form" action="https://google.com/search" method='get'>
-	<input type="text" class="form-control form form-input" name="q" value="" autocomplete="off" autofocus placeholder="Search google">
+		<input type="text" class="form-control form form-input" name="q" value="" autocomplete="off" autofocus placeholder="Search google">
 	</form>
-
+	-->
 
 <ul id="tinybuttons"></ul>
 
@@ -245,11 +246,12 @@ input[type=text]:focus, textarea:focus {
 	data = {
 		"records":
 		[
-			{"color":"bg-uif-alizarin fg-uif-white", "link":"https://portal.office.com/Adminportal/Home#/homepage", "text":"<i class='fab fa-microsoft fa-3x'></i> </br>o365 Admin Center"}		
+			{"color":"bg-uif-alizarin fg-uif-white",  "link":"https://portal.office.com/Adminportal/Home#/homepage", "text":"<i class='fab fa-microsoft fa-3x'></i> </br>o365 Admin Center"}		
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://portal.azure.com/#@dpcqld.onmicrosoft.com/dashboard/private/40bce110-90db-4306-a7dc-713936dc53bd", "text":"<i class='fab fa-microsoft fa-3x'></i> </br>Azure"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://dpcqld.portal.cloudappsecurity.com/#/dashboard", "text":"<i class='fab fa-microsoft fa-3x'></i> </br> Cloud App Security"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://protection.office.com/homepage", "text":"<i class='fab fa-microsoft fa-3x'></i> </br>Security & Compliance"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://securitycenter.windows.com/dashboard", "text":"<i class='fab fa-microsoft fa-3x'></i> </br> Defender ATP"}
+						,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://mha.azurewebsites.net/", "text":"<i class='fab fa-microsoft fa-3x'></i><br/>Message Analyzer"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://cbawl.premiers.qld.gov.au/Dashboard/Dashboard/Dashboard.aspx", "text":"<i class='fas fa-shield-alt fa-3x'></i><br/>Carbon Black"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://admin.zscalertwo.net/#dashboard/1", "text":"<i class='fas fa-shield-alt fa-3x'></i><br/>zScaler"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://cloud.malwarebytes.com/auth/login", "text":"<i class='fas fa-shield-alt fa-3x'></i><br/>MalwareBytes"}
@@ -266,7 +268,7 @@ input[type=text]:focus, textarea:focus {
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://feedly.com/i/my", "text":"<i class='fas fa-rss fa-3x'></i><br/>Feedly"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://www.virustotal.com/gui/home/upload", "text":"<i class='fas fa-spider fa-3x'></i><br/>Virus Total"}
 			,{"color":"bg-uif-alizarin fg-uif-white", "link":"https://urlscan.io/", "text":"<i class='fas fa-search-location fa-3x'></i><br/>urlscan.io"}
-			
+
 		
 		
 		
@@ -327,7 +329,7 @@ input[type=text]:focus, textarea:focus {
 	{{#records}}
 		<a href="{{link}}" target="_blank">
 			<li class="{{color}}">
-						{{{icon}}} {{{text}}}
+				{{{icon}}} {{{text}}}
 			</li>
 		</a>
  
@@ -337,7 +339,7 @@ input[type=text]:focus, textarea:focus {
 	{{#records}}
 		<a href="{{link}}" target="_blank"  title="{{title}}">
 			<li class="{{color}}">
-						{{{icon}}} {{{text}}}
+				{{{icon}}} {{{text}}}
 			</li>
 		</a>
  
