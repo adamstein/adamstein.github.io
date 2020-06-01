@@ -31,9 +31,11 @@
 
         .navlist li
 {
-display: inline;
+display: inline-block;
 list-style-type: none;
-padding-right: 20px;
+padding: 10px 5px;
+padding-top:0px;
+text-align: center;
 }
 
 
@@ -126,7 +128,7 @@ padding-right: 20px;
 
 
 
-
+<h1 id="welcome" style="text-align: center; width:100%; color:white;"></h1>
 <table id="textlinks">
     
 
@@ -462,10 +464,6 @@ padding-right: 20px;
 	</script>
 
  <!-- handlebars template -->
-<style>
-
-
-</style>
   
   <script id="textLink" type="text/template">
     <tr>
@@ -473,7 +471,7 @@ padding-right: 20px;
         <td style="vertical-align: top;" class="{{color}}">
             <ul class="navlist">
                 {{#records}}
-                <li><a href="{{link}}" target="_blank"  class="{{../color}}">{{{text}}}</a></li>
+                <li>| <a href="{{link}}" target="_blank"  class="{{../color}}">{{{text}}}</a></li>
                 {{/records}}  
             </ul>
         </td>
@@ -493,30 +491,26 @@ padding-right: 20px;
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 
-    console.log("hello " + getParameterByName('name'));
-
-	Handlebars.registerHelper("switchUI", function(cssClass) {
-		var response = cssClass;
-		response = response.replace("fg","none")
-		response = response.replace("bg", "fg")
-		return response;
-    });
+    //console.log();
     
 
-	Handlebars.registerHelper("getcssclass", function(cat) {
-		switch (cat) {
-            case "microsoft": return "fg-uif-pomegranate"; break;
-            default:
-                return ""; 
-        }
-    });
 
 
-    var runHandlebars = function (data, tplId, anchor) {
-      var template = $(tplId).html();
-      var stone = Handlebars.compile(template)(data);
-      $(anchor).append(stone);
-    };
+    var Digital = new Date()
+    var Hours = Digital.getHours()
+    var greeting = "Good "
+    if (Hours >= 5 && Hours <= 11) 
+        greeting = "Good Morning"
+    else if (Hours >= 12 && Hours <= 17) 
+        greeting = "Good Afternoon"
+    else if (Hours >= 18 && Hours <= 22) 
+        greeting = "Good Evening"
+    else if (Hours >= 23 && Hours <= 4) 
+        greeting = "Good Night"
+    else
+        greeting = "Welcome"
+
+    $("#welcome").text(greeting + " " + escape(getParameterByName('name')));
 
 
     var runHandleBars2 = function (data, cat, color, templateId, anchorId) {
@@ -524,10 +518,6 @@ padding-right: 20px;
         ds.name = cat
         ds.color = color
         ds.records = data.records.filter( record => record.cat.toLowerCase() == cat.toLowerCase());
-    
-    
-        console.log(ds)
-    
         var template = $(templateId).html();
         var stone = Handlebars.compile(template)(ds);
         $(anchorId).append(stone);
@@ -548,14 +538,6 @@ padding-right: 20px;
     runHandleBars2(dataset, 'News', 'fg-uif-silver', '#textLink', '#textlinks')
 
     
-
-
-    
-	//runHandlebars(tiny, '#tinybutton', '#tinybuttons'); 
-	
-    var ms = dataset.records.filter( record => record.cat.toLowerCase() === 'microsoft');
-    console.log(ms)
-    runHandlebars(ms, '#textLink', '#textlinks'); 
 	
   </script>
 <!--
