@@ -4,6 +4,7 @@
 	<head>
 		<title>template</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -11,7 +12,7 @@
         <script src="js/moment.min.js"></script>
         <link rel="stylesheet" href="css/flatui.css" />
 		<style>
-			* {
+			html {
 				font-family: 'consolas', sans-serif;
 			}
 
@@ -33,24 +34,58 @@
 				list-style-type: none;
 				padding: 10px 5px;
 				padding-top: 0px;
-				text-align: center;
-			}            
-		</style>
+                text-align: center;
+
+            }      
+             
+        </style>
+        <style>
+
+        /* Small devices (landscape phones, 544px and up) */
+        @media (min-width: 544px) {  
+            html {font-size:100%;}
+        #greeting, #time, #date {text-align:center !important; width:100%;}
+        }
+        
+        /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+        @media (min-width: 768px) {  
+            html {font-size:2rem;} /*1rem = 16px*/
+        }
+        
+        /* Large devices (desktops, 992px and up) */
+        @media (min-width: 992px) { 
+            html {font-size:1.5rem;} /*1rem = 16px*/
+        }
+        
+        /* Extra large devices (large desktops, 1200px and up) */
+        @media (min-width: 1200px) {  
+            html {font-size:1rem;} /*1rem = 16px*/
+            #greeting {text-align:left  !important;  width:100%;}
+            #time, #date{text-align:right !important; width:100%;}
+        }
+        </style>
 	</head>
 
 	<body>
 
 
-        <div class="container">
+        <div class="container fluid">
 
             <div class="row">
-                <div class="col-sm-9" style="color:white;">		
+                <div class="col-sm-8" style="color:white;">		
                    <h1 id="greeting"></h1>
                 </div>
-                <div class="col-sm-3">
-                    <h1 id="time" style="color:white;" class="float-right"></h1>
-                    <h4 id="date" style="color:white;" class="float-right"></h4>
+                <div class="col-sm-4">
+                    <h1 id="time" style="color:white;"></h1>
+                    
                 </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-12" style="color:white;">		
+                <h4 id="date" style="color:white;"></h4>
+                 
+             </div>
+                
             </div>
             <div class="row">
                 <div class="col-sm-12">	
@@ -69,7 +104,7 @@
 
 		<script id="textLinkOLD" type="text/template">
 			<tr>
-            <td style="vertical-align: top;" class="{{color}}">{{name}}</td>
+            <td style="vertical-align: top;" class="{{color}}"><h5>{{name}}</h5></td>
             <td style="vertical-align: top;" class="{{color}}">
                 <ul class="navlist">
                     {{#records}}
@@ -98,7 +133,45 @@
 
 
 		<script>
-			$(function() { //document.ready
+			
+			function runHandleBars (data, cat, color, templateId, anchorId) {
+				var ds = {};
+				ds.name = cat
+				ds.color = color
+				ds.records = data.records.filter(record => record.cat.toLowerCase() == cat.toLowerCase());
+				var template = $(templateId).html();
+				var stone = Handlebars.compile(template)(ds);
+				$(anchorId).append(stone);
+            }
+            function runclock() {
+				const date = moment().format("dddd, Do MMMM");
+				const time = moment().format("HH:mm");
+				$('#date').text(date);
+				$('#time').text(time);
+				// update canvas every second
+				setTimeout(runclock, 5000);
+            }
+            function greeting() {
+                var HH = moment().hours()
+                console.log(HH);
+				var msg = "";
+				switch (true) { 
+					case HH >= 17:
+                        msg = "Good evening";
+						break;
+					case HH >= 12:
+                        msg = "Good afternoon";
+						break;
+					case HH >= 6:
+                        msg = "Good morning";
+						break;
+					default:
+                        msg = "Welcome";
+				}
+                return msg;
+			}
+
+            $(function() { //document.ready
 				console.log("ready!");
 				runHandleBars(dataset, 'Google', 'fg-uif-alizarin', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'Socials', 'fg-uif-orange', '#textLink', '#hbrepeater')
@@ -112,44 +185,6 @@
                 runclock();
                 $("#greeting").text(greeting());
 			});
-			function runHandleBars (data, cat, color, templateId, anchorId) {
-				var ds = {};
-				ds.name = cat
-				ds.color = color
-				ds.records = data.records.filter(record => record.cat.toLowerCase() == cat.toLowerCase());
-				var template = $(templateId).html();
-				var stone = Handlebars.compile(template)(ds);
-				$(anchorId).append(stone);
-            }
-            function runclock() {
-				const date = moment().format("dddd, MMMM Do");
-				const time = moment().format("HH:mm");
-				$('#date').text(date);
-				$('#time').text(time);
-				// update canvas every second
-				setTimeout(runclock, 5000);
-            }
-            function greeting() {
-                var HH = moment().hours()
-                console.log(HH);
-				var msg = "";
-				switch (true) { 
-					case HH > 17:
-                        msg = "Good evening";
-						break;
-					case HH > 12:
-                        msg = "Good afternoon";
-						break;
-					case HH > 6:
-                        msg = "Good morning";
-						break;
-					default:
-                        msg = "Welcome";
-				}
-                return msg;
-			}
-
-
 		</script>
 
 
@@ -172,3 +207,4 @@
 
 -->
 </html>
+
