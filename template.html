@@ -4,6 +4,7 @@
 	<head>
 		<title>template</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
 		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -11,7 +12,7 @@
         <script src="js/moment.min.js"></script>
         <link rel="stylesheet" href="css/flatui.css" />
 		<style>
-			* {
+			html {
 				font-family: 'consolas', sans-serif;
 			}
 
@@ -33,14 +34,15 @@
 				list-style-type: none;
 				padding: 10px 5px;
 				padding-top: 0px;
-				text-align: center;
+                text-align: center;
+
 			}            
         </style>
         <style>
 
         /* Small devices (landscape phones, 544px and up) */
         @media (min-width: 544px) {  
-        html {font-size:3rem;} /*1rem = 16px*/
+        html        { font-size:150%;} /*1rem = 16px*/
         }
         
         /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -55,7 +57,7 @@
         
         /* Extra large devices (large desktops, 1200px and up) */
         @media (min-width: 1200px) {  
-            html {font-size:1rem;} /*1rem = 16px*/
+            html {font-size:100% !important} /*1rem = 16px*/
         }
         </style>
 	</head>
@@ -67,16 +69,16 @@
 
             <div class="row">
                 <div class="col-sm-8" style="color:white;">		
-                   <h1 id="greeting"></h1>
+                   <div id="greeting"></div>
                 </div>
                 <div class="col-sm-4">
-                    <h1 id="time" style="color:white;" class="float-right"></h1>
+                    <div id="time" style="color:white;" class="float-right"></div>
                     
                 </div>
             </div>
             <div class="row">
             <div class="col-sm-12" style="color:white;">		
-                <h4 id="date" style="color:white;" class="float-right"></h4>
+                <div id="date" style="color:white;" class="float-right"></div>
                  
              </div>
                 
@@ -127,20 +129,7 @@
 
 
 		<script>
-			$(function() { //document.ready
-				console.log("ready!");
-				runHandleBars(dataset, 'Google', 'fg-uif-alizarin', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Socials', 'fg-uif-orange', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Microsoft', 'fg-uif-clouds', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Products', 'fg-uif-peterriver', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Security', 'fg-uif-carrot', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Hunting', 'fg-uif-emerald', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Work', 'fg-uif-amethyst', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'News', 'fg-uif-silver', '#textLink', '#hbrepeater')
-                runHandleBars(dataset, 'Tools', 'fg-uif-nephritis', '#textLink', '#hbrepeater')
-                runclock();
-                $("#greeting").text(greeting());
-			});
+			
 			function runHandleBars (data, cat, color, templateId, anchorId) {
 				var ds = {};
 				ds.name = cat
@@ -151,7 +140,7 @@
 				$(anchorId).append(stone);
             }
             function runclock() {
-				const date = moment().format("dddd, MMMM Do");
+				const date = moment().format("dddd, Do MMMM");
 				const time = moment().format("HH:mm");
 				$('#date').text(date);
 				$('#time').text(time);
@@ -178,7 +167,20 @@
                 return msg;
 			}
 
-
+            $(function() { //document.ready
+				console.log("ready!");
+				runHandleBars(dataset, 'Google', 'fg-uif-alizarin', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Socials', 'fg-uif-orange', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Microsoft', 'fg-uif-clouds', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Products', 'fg-uif-peterriver', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Security', 'fg-uif-carrot', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Hunting', 'fg-uif-emerald', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Work', 'fg-uif-amethyst', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'News', 'fg-uif-silver', '#textLink', '#hbrepeater')
+                runHandleBars(dataset, 'Tools', 'fg-uif-nephritis', '#textLink', '#hbrepeater')
+                runclock();
+                $("#greeting").text(greeting());
+			});
 		</script>
 
 
