@@ -147,7 +147,8 @@
 				const date = moment().format("dddd, Do MMMM");
 				const time = moment().format("HH:mm");
 				$('#date').text(date);
-				$('#time').text(time);
+                $('#time').text(time);
+                $("#greeting").text(greeting());
 				// update canvas every second
 				setTimeout(runclock, 5000);
             }
@@ -173,17 +174,19 @@
 
             $(function() { //document.ready
 				console.log("ready!");
-				runHandleBars(dataset, 'Google', 'fg-uif-alizarin', '#textLink', '#hbrepeater')
+                runHandleBars(dataset, 'Google', 'fg-uif-alizarin', '#textLink', '#hbrepeater')
+                runHandleBars(dataset, 'Learning', 'fg-uif-nephritis', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'Socials', 'fg-uif-orange', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'Microsoft', 'fg-uif-clouds', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'Products', 'fg-uif-peterriver', '#textLink', '#hbrepeater')
-				runHandleBars(dataset, 'Security', 'fg-uif-carrot', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Security', 'fg-uif-sunflower', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'Hunting', 'fg-uif-emerald', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'Work', 'fg-uif-amethyst', '#textLink', '#hbrepeater')
 				runHandleBars(dataset, 'News', 'fg-uif-silver', '#textLink', '#hbrepeater')
                 runHandleBars(dataset, 'Tools', 'fg-uif-nephritis', '#textLink', '#hbrepeater')
+                
                 runclock();
-                $("#greeting").text(greeting());
+               
 			});
 		</script>
 

@@ -312,7 +312,32 @@ dataset = {
     "text": "MITRE ATT&CK",
     "icon": "",
     "link": "https://attack.mitre.org/matrices/enterprise/"
+},
+
+{
+    "cat": "microsoft",
+    "text": "Admin Centers",
+    "icon": "",
+    "link": "https://portal.office.com/Adminportal/Home#/alladmincenters"
 }
+
+,
+
+{
+    "cat": "learning",
+    "text": "Udemy",
+    "icon": "",
+    "link": "https://www.udemy.com/"
+},
+{
+    "cat": "tools",
+    "text": "Down Detector",
+    "icon": "fab fa-dropbox  fa-2x'></i>",
+    "link": "https://downdetector.com.au/"
+}
+
+
+
 
 
 
