@@ -128,6 +128,14 @@ dataset = {
     "link": "https://www.useapassphrase.com/"
 },
 {
+    "cat": "security",
+    "text": "any.run",
+    "icon": "fas fa-key",
+    "link": "https://app.any.run/"
+},
+
+
+{
     "cat": "news",
     "text": "Feedly",
     "icon": "fas fa-rss",
@@ -264,6 +272,12 @@ dataset = {
     "text": "Book meeting rooms",
     "icon": "fas fa-handshake  fa-2x'></i>",
     "link": "https://bookings.qgaaad.qld.gov.au/Master.aspx"
+},
+{
+    "cat": "google",
+    "text": "Google Messages",
+    "icon": "svgGmail",
+    "link": "https://messages.google.com/"
 },
 {
     "cat": "google",
