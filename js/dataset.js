@@ -11,7 +11,7 @@ dataset = {
     "cat": "microsoft",
     "text": "Azure",
     "icon": "fab fa-microsoft",
-    "link": "https://portal.azure.com/#@dpcqld.onmicrosoft.com/dashboard/private/40bce110-90db-4306-a7dc-713936dc53bd"
+    "link": "https://portal.azure.com/#home"
 },
 {
     "cat": "microsoft",
