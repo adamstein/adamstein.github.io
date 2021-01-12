@@ -190,6 +190,17 @@ dataset = {
     "link": "http://www.checkshorturl.com/"
 },
 {
+    "cat": "hunting",
+    "text": "Uncoder.IO",
+    "icon": "fas fa-search",
+    "link": "https://uncoder.io/"
+},
+
+
+
+
+
+{
     "cat": "work",
     "text": "Aurion",
     "icon": "fas fa-user-clock",
@@ -343,6 +354,16 @@ dataset = {
     "icon": "",
     "link": "https://www.udemy.com/"
 },
+{
+    "cat": "learning",
+    "text": "awesome-security",
+    "icon": "",
+    "link": "https://github.com/sbilly/awesome-security"
+},
+
+
+
+
 {
     "cat": "tools",
     "text": "Down Detector",
