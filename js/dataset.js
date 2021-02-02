@@ -360,6 +360,12 @@ dataset = {
     "icon": "",
     "link": "https://github.com/sbilly/awesome-security"
 },
+{
+    "cat": "learning",
+    "text": "isc2 (cissp)",
+    "icon": "",
+    "link": "https://learn.isc2.org/d2l/home"
+},
 
 
 
