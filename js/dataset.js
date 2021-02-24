@@ -249,6 +249,12 @@ dataset = {
     "link": "https://www.itnews.com.au/"
 },
 {
+    "cat": "news",
+    "text": "abc.net.au",
+    "icon": "fas fa-newspaper ",
+    "link": "https://www.abc.net.au/news"
+},
+{
     "cat": "socials",
     "text": "Twitter",
     "icon": "fab fa-twitter  fa-2x'></i>",
@@ -313,6 +319,12 @@ dataset = {
     "text": "Google Photos",
     "icon": "svgPhotos",
     "link": "https://photos.google.com/"
+},
+{
+    "cat": "google",
+    "text": "Google Podcasts",
+    "icon": "svgPhotos",
+    "link": "https://podcasts.google.com/"
 },
 {
     "cat": "tools",
