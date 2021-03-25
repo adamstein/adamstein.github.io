@@ -63,12 +63,6 @@ dataset = {
 },
 {
     "cat": "products",
-    "text": "MalwareBytes",
-    "icon": "fas fa-shield-alt",
-    "link": "https://cloud.malwarebytes.com/auth/login"
-},
-{
-    "cat": "products",
     "text": "ProofPoint",
     "icon": "fas fa-fish",
     "link": "https://premiersqld.securityeducation.com/"
@@ -292,7 +286,7 @@ dataset = {
 },
 {
     "cat": "google",
-    "text": "Google Messages",
+    "text": "Messages",
     "icon": "svgGmail",
     "link": "https://messages.google.com/"
 },
@@ -304,25 +298,25 @@ dataset = {
 },
 {
     "cat": "google",
-    "text": "Google Calendar",
+    "text": "Calendar",
     "icon": "svgCal",
     "link": "https://calendar.google.com/calendar/r?pli=1"
 },
 {
     "cat": "google",
-    "text": "Google Hangouts",
+    "text": "Hangouts",
     "icon": "svgHangouts",
     "link": "https://hangouts.google.com/"
 },
 {
     "cat": "google",
-    "text": "Google Photos",
+    "text": "Photos",
     "icon": "svgPhotos",
     "link": "https://photos.google.com/"
 },
 {
     "cat": "google",
-    "text": "Google Podcasts",
+    "text": "Podcasts",
     "icon": "svgPhotos",
     "link": "https://podcasts.google.com/"
 },
@@ -334,13 +328,13 @@ dataset = {
 },
 {
     "cat": "google",
-    "text": "Google Drive",
+    "text": "Drive",
     "icon": "svgDrive",
     "link": "https://drive.google.com/"
 },
 {
     "cat": "google",
-    "text": "Google Keep",
+    "text": "Keep",
     "icon": "svgKeep",
     "link": "https://keep.google.com/"
 },
