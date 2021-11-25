@@ -1,12 +1,7 @@
 dataset = {
     "records":
     [
-{
-    "cat": "microsoft",
-    "text": "o365 Admin Center",
-    "icon": "fab fa-microsoft",
-    "link": "https://portal.office.com/Adminportal/Home#/homepage"
-},
+
 {
     "cat": "microsoft",
     "text": "Azure",
@@ -43,12 +38,7 @@ dataset = {
     "icon": "svgSentinel",
     "link": "https://portal.azure.com/#blade/Microsoft_Azure_Security_Insights/MainMenuBlade/0/subscriptionId/e472542b-3ba3-461b-9754-99ea000ff7df/resourceGroup/DPC_Sentinel_Prod_RG/workspaceName/DPCAzureSentinel"
 },
-{
-    "cat": "microsoft",
-    "text": "Sentinel Community",
-    "icon": "svgSentinel",
-    "link": "https://github.com/Azure/Azure-Sentinel"
-},
+
 {
     "cat": "products",
     "text": "Carbon Black",
@@ -266,12 +256,7 @@ dataset = {
     "icon": "fab fa-facebook-f  fa-2x'></i>",
     "link": "https://www.facebook.com"
 },
-{
-    "cat": "tools",
-    "text": "DropBox",
-    "icon": "fab fa-dropbox  fa-2x'></i>",
-    "link": "https://www.dropbox.com"
-},
+
 {
     "cat": "work",
     "text": "Building Invitiations",
@@ -373,6 +358,12 @@ dataset = {
     "link": "https://learn.isc2.org/d2l/home"
 },
 
+{
+    "cat": "learning",
+    "text": "pluralsight",
+    "icon": "",
+    "link": "https://app.pluralsight.com"
+},
 
 
 
