@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>alt</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono" rel="stylesheet">
+        <script src="js/dataset-alt.js"></script>
+        <script src="js/moment.min.js"></script>
+        <script src="js/moment-timezone-with-data.min.js"></script>
+        <link rel="stylesheet" href="css/flatui.css" />
+		<style>
+			html {
+				font-family: 'JetBrains Mono', 'Comic Sans', sans-serif !important;
+			}
+
+			body {
+				margin: 0px;
+				padding: 20px;
+                font-family: 'JetBrains Mono', 'Comic Sans', sans-serif !important;
+                font-size: 14px;
+				background-color: #20262e;
+            }
+             
+            a:link { text-decoration: none; }
+            a:visited { text-decoration: none; }
+            a:hover { text-decoration: none; }
+            a:active { text-decoration: none; }
+
+            .img {border:1px solid red;}
+            #greeting {text-align:left  !important;  width:100%;}
+            #date{text-align:left !important; width:100%;}
+        </style>
+
+	</head>
+
+	<body>
+
+
+        <div class="container fluid">
+            <div class="row fg-uif-silver">
+                <div class="col-3">		
+                   <h5 id="greeting"></h5>
+                   <h5 id="date" class="text-left"></h5>
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div id="clocks" class="row"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row"><hr></div>
+            <div class="row">
+                <div id="hbrepeater" class="row">
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js" integrity="sha256-+JMHsXRyeTsws/tzbIh5YHQxRdKCuNjmvNcTFtY6DLc=" crossorigin="anonymous"></script>
+
+		<script id="textLinkOLDEST" type="text/template">
+			<tr>
+            <td style="vertical-align: top;" class="{{color}}"><h5>{{name}}</h5></td>
+            <td style="vertical-align: top;" class="{{color}}">
+                <ul class="navlist">
+                    {{#records}}
+                        <li><a href="{{link}}" target="_blank" class="{{../color}}">[{{{text}}}]</a></li>
+                    {{/records}}
+                </ul>
+            </td>
+        </tr>
+        </script>
+
+		<script id="textLinkOLD" type="text/template">
+            <div class="row">
+                <div class="col-sm-2 {{color}}">
+                    {{name}}
+                </div>
+                <div class="col-sm-10 {{color}}">		
+                    <ul class="navlist">
+                        {{#records}}
+                            <li><a href="{{link}}" target="_blank" class="{{../color}}">
+                                <img src="{{iconPath}}" width="{{iconWidth}}" height="{{iconHeight}}">
+                                
+                                [{{{text}}}]</a></li>
+                        {{/records}}
+                    </ul>
+                </div>
+            </div>
+        </script>
+
+		<script id="textLink" type="text/template">
+                <div class="col-sm-2 ">
+                    <div class="fw-bold {{color}} text-center"> {{name}}</div>
+                    <div class="list-group" >
+                        {{#records}}
+                            <a href="{{link}}" target="_blank" class="list-group-item list-group-item-action {{../color}}">
+                                <!--<i class="{{faicon}}"></i>-->
+                                {{{text}}}
+                            </a>
+                        {{/records}}
+                    </div>
+                </div>
+        </script>
+
+        <script id="clock" type="text/template">
+            {{#records}}
+            <div class="col">
+                <div class="card text-center bg-transparent">
+                    <h5 class="card-title fg-uif-silver">{{time}}</h5>
+                    <p class="card-text  fg-uif-silver">{{zone}}</p>
+                </div>
+            </div>
+            {{/records}}
+        </script>
+
+
+		<script>
+			
+			function runHandleBars (data, cat, color, templateId, anchorId) {
+				var ds = {};
+				ds.name = cat
+				ds.color = color
+				ds.records = data.records.filter(record => record.cat.toLowerCase() == cat.toLowerCase());
+				var template = $(templateId).html();
+				var stone = Handlebars.compile(template)(ds);
+				$(anchorId).append(stone);
+            }
+            
+            function getTime() {
+                var ds = {}
+                ds.records = [];
+                ds.records.push({"time":moment().tz("Asia/Shanghai").format(("HH:mm")), "zone":"China"});
+                ds.records.push({"time":moment().tz("Australia/Queensland").format(("HH:mm")), "zone":"Brisbane"});
+                ds.records.push({"time":moment().tz("UTC").format(("HH:mm")), "zone":"UTC"});
+                ds.records.push({"time":moment().tz("Europe/Moscow").format(("HH:mm")), "zone":"Moscow"});
+                var template = $("#clock").html();
+				var stone = Handlebars.compile(template)(ds);
+				$("#clocks").empty().append(stone);
+                //console.log(moment.tz.names());
+                //console.log(moment.tz.countries());
+
+            }
+            
+            
+            function runclock() {
+				const date = moment().format("dddd, Do MMMM");
+				$('#date').text(date);
+                $("#greeting").text(greeting());
+                getTime();
+
+				// update canvas every second
+				setTimeout(runclock, 5000);
+            }
+            function greeting() {
+                var HH = moment().hours()
+                //console.log(HH);
+				var msg = "";
+				switch (true) { 
+					case HH >= 17:
+                        msg = "Good evening";
+						break;
+					case HH >= 12:
+                        msg = "Good afternoon";
+						break;
+					case HH >= 6:
+                        msg = "Good morning";
+						break;
+					default:
+                        msg = "Welcome";
+				}
+                return msg;
+			}
+
+            $(function() { //document.ready
+				console.log("ready!");
+                runHandleBars(dataset, 'Google', 'fg-uif-alizarin', '#textLink', '#hbrepeater')
+                runHandleBars(dataset, 'Learning', 'fg-uif-nephritis', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Socials', 'fg-uif-orange', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Microsoft', 'fg-uif-peterriver', '#textLink', '#hbrepeater')
+				//runHandleBars(dataset, 'Products', 'fg-uif-peterriver', '#textLink', '#hbrepeater')
+				//runHandleBars(dataset, 'Security', 'fg-uif-sunflower', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'Hunting', 'fg-uif-emerald', '#textLink', '#hbrepeater')
+				//runHandleBars(dataset, 'Work', 'fg-uif-amethyst', '#textLink', '#hbrepeater')
+				runHandleBars(dataset, 'News', 'fg-uif-sunflower', '#textLink', '#hbrepeater')
+                //runHandleBars(dataset, 'Tools', 'fg-uif-nephritis', '#textLink', '#hbrepeater')
+                
+                runclock();
+               
+			});
+		</script>
+
+
+
+
+
+	</body>
+<!--
+	github commands
+	
+	git add --all
+	git commit -m "version 0.3"
+	git push -u origin master
+
+	icons from fontawesome
+	https://fontawesome.com/icons
+	
+	colors from 
+	http://androidajay.com/materialui/flatuicolors.html
+
+-->
+</html>
+
